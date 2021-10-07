@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import TimeSeriesSplit
+from sklearn import linear_model
 # %%
 # Settings:
 pd.set_option('display.width', 190)
@@ -173,3 +174,4 @@ X_test['BCIg'] = z_score_scaler_bcig.transform(X_test['BCIg'].values.reshape(-1,
 # z_score_scaler_usrecd = z_score_scaler_usrecd.fit(y_test['USRECD'].values.reshape(-1,1))
 # y_test['USRECD'] = z_score_scaler_usrecd.transform(y_test['USRECD'].values.reshape(-1,1))
 # %%
+lr = linear_model.LinearRegression().fit(X_train, y_train)
